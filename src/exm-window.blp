@@ -21,12 +21,28 @@ template ExmWindow : Adw.ApplicationWindow {
 					  stack: view_stack;
 				  }
 
-				  [end]
-				  Gtk.MenuButton {
-				    icon-name: "open-menu-symbolic";
-				    menu-model: primary_menu;
-				  }
-			  }
+					[end]
+					Gtk.MenuButton {
+						icon-name: "open-menu-symbolic";
+						menu-model: primary_menu;
+					}
+					[end]
+					Gtk.Box {
+						orientation: horizontal;
+						styles ["linked"]
+
+						Gtk.ToggleButton list_button {
+							name: "list_button";
+							active: true;
+							icon-name: "view-list-symbolic";
+						}
+						Gtk.ToggleButton grid_button {
+							name: "grid_button";
+							group: list_button;
+							icon-name: "view-grid-symbolic";
+						}
+					}
+			}
 
 			  Gtk.Box {
 				  orientation: vertical;
